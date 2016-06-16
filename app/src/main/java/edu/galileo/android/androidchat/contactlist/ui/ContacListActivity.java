@@ -34,6 +34,7 @@ import edu.galileo.android.androidchat.libs.ImageLoader;
 import edu.galileo.android.androidchat.login.ui.LoginActivity;
 
 public class ContacListActivity extends AppCompatActivity implements ContactListView, OnItemClickListener {
+    public static String signedUser = "signed";
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.recyclerViewContacts)
@@ -52,6 +53,12 @@ public class ContacListActivity extends AppCompatActivity implements ContactList
         presenter = new ContactListPresenterImplementation(this);
         presenter.onCreate();
         setUpToolbar();
+        bienvenida(getIntent());
+    }
+
+    public void bienvenida(Intent intent){
+        Snackbar.make(container, String.format(getString(R.string.contactlist_message_welcome)
+                , intent.getStringExtra(this.signedUser)), Snackbar.LENGTH_LONG).show();
     }
 
     private void setUpRecyclerView() {

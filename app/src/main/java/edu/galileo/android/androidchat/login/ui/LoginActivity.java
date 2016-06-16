@@ -17,6 +17,7 @@ import edu.galileo.android.androidchat.R;
 import edu.galileo.android.androidchat.contactlist.ui.ContacListActivity;
 import edu.galileo.android.androidchat.login.LoginPresenter;
 import edu.galileo.android.androidchat.login.LoginPresenterImplementation;
+import edu.galileo.android.androidchat.register.ui.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity implements LoginView{
     @Bind(R.id.txtEmail)
@@ -73,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
     @OnClick(R.id.btnSignup)
     @Override
     public void handleSingUp() {
-        presenter.registerNewUser(txtEmail.getText().toString(), txtPassword.getText().toString());
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 
     @OnClick(R.id.btnSignin)
@@ -84,7 +85,8 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
 
     @Override
     public void navigateToMainScreen() {
-        startActivity(new Intent(this, ContacListActivity.class));
+        startActivity(new Intent(this, ContacListActivity.class)
+                .putExtra(ContacListActivity.signedUser, txtEmail.getText().toString()));
     }
 
     @Override
@@ -94,17 +96,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView{
         txtPassword.setError(msgError);
     }
 
-    @Override
-    public void newUserSuccess() {
-        Snackbar.make(container, R.string.login_success_message_signup, Snackbar.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void newUserError(String error) {
-        txtPassword.setText(null);
-        String msgError = String.format(getString(R.string.login_error_message_signup), error);
-        txtPassword.setError(msgError);
-    }
 
     private void setInputs(boolean status){
         txtEmail.setEnabled(status);

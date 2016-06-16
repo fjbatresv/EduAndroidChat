@@ -100,6 +100,7 @@ public class FirebaseHelper {
     }
 
     public void signOff(){
+
         notifyContactOfConnectionChange(User.offLine, true);
     }
 

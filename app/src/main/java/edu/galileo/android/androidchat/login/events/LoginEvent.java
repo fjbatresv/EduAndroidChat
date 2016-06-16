@@ -6,8 +6,6 @@ package edu.galileo.android.androidchat.login.events;
 public class LoginEvent {
     public final static int onSignInError = 0;
     public final static int onSignInSuccess = 1;
-    public final static int onSignUpError = 2;
-    public final static int onSignUpSuccess = 3;
     public final static int onFailedToRecoverSession = 4;
 
     private int eventType;

@@ -9,6 +9,7 @@ public class ContactListEvent {
     public final static int contactAdded = 0;
     public final static int contactChanged = 1;
     public final static int contacRemoved = 2;
+    public final static int signOut = 3;
 
     private User user;
     private int event;

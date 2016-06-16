@@ -13,20 +13,33 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".login.ui.LoginActivity"
+            android:screenOrientation="portrait"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name=".register.ui.RegisterActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.galileo.android.androidchat.login.ui.LoginActivity"/>
+        </activity>
+        <activity
             android:name=".contactlist.ui.ContacListActivity"
             android:label="@string/contactList.title"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".chat.ui.ChatActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.galileo.android.androidchat.contactlist.ui.ContacListActivity"/>
+        </activity>
     </application>
 
 </manifest>

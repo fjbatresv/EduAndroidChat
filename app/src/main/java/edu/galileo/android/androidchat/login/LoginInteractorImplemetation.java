@@ -20,8 +20,4 @@ public class LoginInteractorImplemetation implements LoginInteractor {
         repo.signIn(email, password);
     }
 
-    @Override
-    public void doSignUp(String email, String password) {
-        repo.signUp(email, password);
-    }
 }

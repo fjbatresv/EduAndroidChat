@@ -6,6 +6,5 @@ package edu.galileo.android.androidchat.login;
 //Aqui y solo aqui se usa la conexion con firebase
 public interface LoginRepository {
     void signIn(String email, String password);
-    void signUp(String email, String password);
     void checkSession();
 }
